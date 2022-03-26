@@ -1,4 +1,3 @@
-
 package com.portfolioegjp.Portfolio.model;
 
 import javax.persistence.Entity;
@@ -17,13 +16,16 @@ public class Skills {
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Long id;
     
-    private String name;            //HTML, CSS, JavaScript, Idiomas
-    @OneToOne
-    private Group group;            //FrontEnd, BackEnd, Database, Dev Ops, Mobile App
     @OneToOne
     private Category category;        //Framework, Lenguaje, Basics, Herramienta
+    
+    @OneToOne
+    private Grupo grupo;            //FrontEnd, BackEnd, Database, Dev Ops, Mobile App
+     
     @OneToOne
     private Status status;          //Status: Principiante, Intermedio, Competente, Experto o Level: Regular, Bueno, Muy Bueno, Excelente
+    
+    private String name;            //HTML, CSS, JavaScript, Idiomas
     private String img;
     
 }

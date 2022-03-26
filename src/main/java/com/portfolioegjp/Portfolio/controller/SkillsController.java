@@ -102,7 +102,7 @@ public class SkillsController {
         }
         try{
             habilidad.setName(skillEdit.getName());
-            habilidad.setGroup(skillEdit.getGroup());
+            habilidad.setGrupo(skillEdit.getGrupo());
             habilidad.setCategory(skillEdit.getCategory());
             habilidad.setStatus(skillEdit.getStatus());
             habilidadUpdated = iskillsServ.saveSkill(habilidad);
