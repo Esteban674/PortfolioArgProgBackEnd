@@ -23,7 +23,7 @@ public class Skills {
     private Grupo grupo;            //FrontEnd, BackEnd, Database, Dev Ops, Mobile App
      
     @OneToOne
-    private Status status;          //Status: Principiante, Intermedio, Competente, Experto o Level: Regular, Bueno, Muy Bueno, Excelente
+    private Status status;          //Principante, intermedio, avanzado, experto
     
     private String name;            //HTML, CSS, JavaScript, Idiomas
     private String img;
