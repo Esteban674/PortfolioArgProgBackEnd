@@ -19,6 +19,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,6 +63,7 @@ public class CourseController {
 		return new ResponseEntity<Course>(curso, HttpStatus.OK);
     }
      
+    @Secured("ROLE_ADMIN")
     @PostMapping ("/cursos/agregar")
     public ResponseEntity<?> createCourse(@RequestBody Course curso){
         Course cursonew = null;
@@ -79,6 +81,7 @@ public class CourseController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);     
     }
     
+    @Secured("ROLE_ADMIN")
     @DeleteMapping ("/cursos/eliminar/{id}")
     public ResponseEntity<?> deleteCourse(@PathVariable Long id){
         Map<String, Object> response = new HashMap<String, Object>();
@@ -98,6 +101,7 @@ public class CourseController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);  
     }
     
+    @Secured("ROLE_ADMIN")
     @PutMapping ("/cursos/editar/{id}")
     public ResponseEntity<?> editCourse (@PathVariable Long id,@RequestBody Course courseEdit){
         Map<String, Object> response = new HashMap<String, Object>();      
@@ -126,6 +130,7 @@ public class CourseController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
     
+    @Secured("ROLE_ADMIN")
     @PostMapping("/cursos/upload")
     public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("id") Long id) {
         Map<String, Object> response = new HashMap<String, Object>();

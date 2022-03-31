@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface IUserService {
     
+    
     public List<Usuario> getUsers ();
     
     public Usuario saveUser (Usuario usuario);

@@ -15,6 +15,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,6 +60,7 @@ public class ExperienceController {
 		return new ResponseEntity<Experience>(experiencia, HttpStatus.OK);
     }
      
+    @Secured("ROLE_ADMIN")
     @PostMapping ("/experiencia/agregar")
     public ResponseEntity<?> createExperience(@RequestBody Experience experiencia){
         Experience experiencianew = null;
@@ -76,6 +78,7 @@ public class ExperienceController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
     
+    @Secured("ROLE_ADMIN")
     @DeleteMapping ("/experiencia/eliminar/{id}")
     public ResponseEntity<?> deleteExperience(@PathVariable Long id){
         Map<String, Object> response = new HashMap<String, Object>();
@@ -95,6 +98,7 @@ public class ExperienceController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK); 
     }
     
+    @Secured("ROLE_ADMIN")
     @PutMapping ("/experiencia/editar/{id}")
     public ResponseEntity<?> editExperience (@PathVariable Long id,
                                       @RequestBody Experience experienciaEdit
@@ -127,7 +131,8 @@ public class ExperienceController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
     
-     @PostMapping("/experiencia/upload")
+    @Secured("ROLE_ADMIN")
+    @PostMapping("/experiencia/upload")
     public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("id") Long id) {
         Map<String, Object> response = new HashMap<String, Object>();
 
