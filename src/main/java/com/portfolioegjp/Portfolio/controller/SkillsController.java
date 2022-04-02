@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,7 +54,6 @@ public class SkillsController {
 		return new ResponseEntity<Skills>(habilidad, HttpStatus.OK);
     }
      
-    @Secured("ROLE_ADMIN")
     @PostMapping ("/habilidades/agregar")
     public ResponseEntity<?> createSkill(@RequestBody Skills habilidad){
         Skills habilidadnew = null;
@@ -73,7 +71,6 @@ public class SkillsController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);     
     }
     
-    @Secured("ROLE_ADMIN")
     @DeleteMapping ("/habilidades/eliminar/{id}")
     public ResponseEntity<?> deleteSkill(@PathVariable Long id){
         Map<String, Object> response = new HashMap<String, Object>();
@@ -93,7 +90,6 @@ public class SkillsController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);  
     }
     
-    @Secured("ROLE_ADMIN")
     @PutMapping ("/habilidades/editar/{id}")
     public ResponseEntity<?> editSkill (@PathVariable Long id,@RequestBody Skills skillEdit){
         Map<String, Object> response = new HashMap<String, Object>();      
@@ -121,7 +117,6 @@ public class SkillsController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
     
-    @Secured("ROLE_ADMIN")
     @PostMapping("/habilidades/upload")
     public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("id") Long id) {
         Map<String, Object> response = new HashMap<String, Object>();
