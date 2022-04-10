@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200") ///@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://portfolioegjp.web.app") ///@CrossOrigin(origins = "*")
 public class ExperienceController {
     
     @Autowired
